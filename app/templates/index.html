@@ -1,0 +1,62 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Hello, welcome</h1>
+
+  <form action="" method="post" name="inputText">
+    <fieldset>
+      <legend>Input text</legend>
+      <fieldset>
+          <legend>check this words spelling</legend>
+            <nav>
+              <p>छान ,मोठा ,लहान ,चांगला ,वाईट ,लांब ,दूर ,जवळ ,खोल ,उथळ ,साधा
+                  ,विशेष ,गडद ,फिका ,उंच ,बुटका ,बारीक ,जाडा ,रुंद ,अरुंद ,वाकडा ,सरळ ,बेचव ,चवदार ,कडू ,गोड
+                  ,आंबट ,खारट ,तुरट ,कठीण ,सोपा ,मळका ,स्वच्छ ,घाणेरडा ,कोरडा ,सुका ,ओला ,रिकामा ,भरलेला ,स्वस्त ,महाग ,पूर्ण ,अपूर्ण ,अर्धा ,कडक ,मऊ ,जड ,हलका ,नवीन
+                  ,नवा ,जुना ,शांत ,अशांत ,हळू ,वेगवान ,खूप ,थोडा ,आनंदी ,नाखुश ,दुःखी ,उदास ,चपळ ,मंद ,आळशी ,उत्साही.</p>
+            </nav>
+    
+          </div>
+        </fieldset>
+      {{ form.hidden_tag() }}
+      <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+
+        <p>
+          You can enter your text here:<br />
+          {{ form.inputText(size=400, placeholder="Write something ...") }}<br />
+
+          {% for error in form.inputText.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}<br />
+        </p>
+        <p>
+          <!-- <input type="radio" name="book" value="mobydick">Moby Dick by H. Melville<br />
+          <input type="radio" name="book" value="marinetti">L'aeroplano del Papa by F.T. Marinetti<br />
+          <input type="radio" name="book" value="urteil">Das Urteil by F. Kafka<br /> -->
+          <input type="radio" name="book" value="none" checked="checked">Language:
+            <input type="radio" name="lang" value="MR" checked="checked">Marathi
+            <!-- <input type="radio" name="lang" value="DE">German
+            <input type="radio" name="lang" value="IT">Italian</p> -->
+    </fieldset>
+    <!-- <fieldset>
+      <legend>Settings</legend>
+
+        <p>{{ form.ignoreCase }} ignore case
+
+        <p>{{ form.ignoreStopWords }} ignore stopwords (articles, conjunctions, ...)
+          
+          </p>
+
+    </fieldset> -->
+
+    <fieldset>
+      <legend>Sentiment</legend>
+        <nav>
+          <button class="big-btn" name="action-button" type="submit" value="TA">Sentiment Analysis</button>
+        </nav>
+
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}
